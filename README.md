@@ -14,3 +14,9 @@ Then follow these instructions to install Expo cli:
 https://docs.expo.io/get-started/installation/
 
 Then grab the Expo Go app on your phone. Make sure your phone and your computer are on the same network.
+
+Once you have all that installed, navigate to project folder inside your terminal and enter:
+
+`expo start`
+
+If this is your first launch, you'll need to scan a QR code. After that the app should pop-up.
