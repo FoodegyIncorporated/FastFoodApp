@@ -19,7 +19,7 @@ export var FirebaseUtils = {
      * Initialize Firebase and Firestore API
      * Must be called before any of the FirebaseUtil functions
      */
-    Init: function() {
+    init: function() {
         if (!firebase.apps.length) {
             console.log("Initializing Firebase...");
             firebase.initializeApp(firebaseConfig);
@@ -32,7 +32,7 @@ export var FirebaseUtils = {
      * @param {string} email 
      * @param {string} password 
      */
-    SignIn: async function(email, password)
+    signIn: async function(email, password)
     {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((userCred) => {
@@ -46,10 +46,18 @@ export var FirebaseUtils = {
      * Retrieve the entire collection of Restaurants 
      * @returns {QueryDocumentSnapshot} Array
      */
-    AllRestaurants: async function()
+    allRestaurants: async function()
     {
-        let r = await this.db.collection('restaurants').get();
-        return r;
+        try {
+            let list = await this.db.collection('restaurants').get();
+            let docs = await list.docs;
+            let data = docs.map((val) => {
+                return val.data();
+            })
+            return await data;
+        } catch (error) {
+            console.error("Error Retriving All Restaurants: ", error);
+        }
     }
 };
 export default FirebaseUtils;

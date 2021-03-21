@@ -1,12 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import FirebaseUtils from './FirebaseUtils'
+import FirebaseUtils from './components/FirebaseUtils'
+import RestaurantList from './components/RestaurantList'
 
 export default function App() {
+  FirebaseUtils.init();
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
+      <RestaurantList></RestaurantList>
       <StatusBar style="auto" />
     </View>
   );
