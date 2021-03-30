@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import FirebaseUtils from './components/FirebaseUtils'
+import LoadingScreen from './components/LoadingScreen';
+import MainScreen from './components/MainScreen';
 import RestaurantList from './components/RestaurantList'
 
 export default function App() {
@@ -11,7 +13,7 @@ export default function App() {
       <Text>Open up App.js to start working on your app!</Text>
       <RestaurantList></RestaurantList>
       <StatusBar style="auto" />
-    </View>
+  </View>
   );
 }
 
