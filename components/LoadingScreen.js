@@ -3,52 +3,44 @@ import { Image, ImageBackground, StyleSheet, View, Text } from 'react-native';
 
 function LoadingScreen(props) {
     return (
-        <ImageBackground 
-            style={styles.background}
-            source={require('../assets/uiForApp/loginForApp.png')}
-        >
-            <View style={styles.logoContainer}>
-                <Image style= {styles.logo} source={require('../assets/uiForApp/logoForApp.png')}/>
-                <Text> Pick where to eat with ease </Text>
+        <View style={styles.image}>
+
+            <ImageBackground 
+            source={require("../assets/uiForApp/loadingScreen.png")} 
+            style={styles.image}
+            />
+
+            <View style={styles.titles}>
+
+                <Text style={styles.title}> Foodegy </Text>
+                <Text style={styles.subtitle}> Pick what to eat with ease </Text>
+
             </View>
 
-            <View style={styles.loginButton}></View>
-            <View style={styles.registerButton}></View>
-            <View style={styles.guestButton}></View>
-
-        </ImageBackground>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
-    background: {
-        flex: 1,
-        justifyContent: "flex-end",
-        alignItems: "center",
+    titles: {
+      top: '30%',
+      width: '100%',
+      alignItems: 'center'
     },
-    loginButton: {
-        width: "100%",
-        height: 70,
-        backgroundColor: '#fc5c65',
+    title: {
+      fontSize: 50,
+      fontWeight: '500',
+      color: '#fff'
     },
-    registerButton: {
-        width: "100%",
-        height: 70,
-        backgroundColor: '#4ecdc4',
+    subtitle: {
+      fontSize: 16,
+      color: '#5c5e62',
     },
-    logo: {
-        width: 100,
-        height: 100,
-    },
-    logoContainer: {
-        position: "absolute",
-        top: 200,
-        alignItems: "center",
-    },
-    guestButton: {
-        width: "100%",
-        height: 70,
-        backgroundColor: 'lightblue',
+    image: {
+      width: "100%",
+      height: "100%",
+      resizeMode: "cover",
+      position: 'absolute',
     }
 });
 

@@ -1,14 +1,15 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View, ImageBackground } from 'react-native';
 
 function MainScreen(props) {
     return (
-        <View style={styles.container}>
-            <Image 
-            resizeMode="contain"
-            style= {styles.image} 
-            source={require('../assets/uiForApp/mainScreen.png')} 
+        <View style={styles.image}>
+
+            <ImageBackground 
+            source={require("../assets/uiForApp/mainScreen.png")} 
+            style={styles.image}
             />
+
         </View>
     );
 }
