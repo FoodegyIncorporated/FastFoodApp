@@ -9,7 +9,7 @@ import LoadingScreen from './components/LoadingScreen';
 export default function App() {
   FirebaseUtils.init();
   return (
-    <LoadingScreen />
+    <MainScreen />
   );
 }
 
