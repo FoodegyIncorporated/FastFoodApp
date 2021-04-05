@@ -15,7 +15,6 @@ function HelpButton(props) {
 
 const styles = StyleSheet.create({
     button: {
-        alignSelf: 'flex-end',
         width: 50,
         height: 50,
     }
