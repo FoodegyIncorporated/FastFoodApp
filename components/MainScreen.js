@@ -16,7 +16,7 @@ function MainScreen(props) {
                     <HelpButton></HelpButton>
                 </View>
             </ImageBackground>
-            
+
         </View>
     );
 }
