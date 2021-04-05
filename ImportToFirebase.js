@@ -42,6 +42,7 @@ async function BeginImport(user)
         if (val[0].length == 0) continue;
 
         await restaurants.doc(val[0]).set({
+            name: val[0],
             cuisine: val[1],
             cost: val[2].length,
             rating: val[3]

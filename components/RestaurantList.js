@@ -5,22 +5,17 @@ import FirebaseUtils from './FirebaseUtils'
 export default function RestaurantList() {
     const [list, setList] = useState([]);
 
-    if (!list.length)
+    if (list.length === 0)
     {
-        FirebaseUtils.allRestaurants()
-            .then((val) => {
-                setList(val);
-            })
-            .catch((error) => {
-                console.error("Unable to retrieve all restaurants.");
-                setList([]);
-            });
+        FirebaseUtils.allRestaurants().then((val) => {
+            setList(val);
+        });
     }
 
     return (
         <View>
             {list.map((restaurant) => (
-                <Text>{restaurant.cuisine}</Text>
+                <Text>{restaurant.name}</Text>
             ))}
         </View>
     )

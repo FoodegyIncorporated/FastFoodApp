@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Image, StyleSheet, View, ImageBackground } from 'react-native';
+import { Platform, Text, Image, StyleSheet, View, ImageBackground } from 'react-native';
 import HelpButton from './HelpButton';
 
 

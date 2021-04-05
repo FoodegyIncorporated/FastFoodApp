@@ -15,6 +15,7 @@ var firebaseConfig = {
 export var FirebaseUtils = {
     db: null,
     user: null,
+    restaurants: [],
     /**
      * Initialize Firebase and Firestore API
      * Must be called before any of the FirebaseUtil functions
@@ -24,6 +25,17 @@ export var FirebaseUtils = {
             console.log("Initializing Firebase...");
             firebase.initializeApp(firebaseConfig);
             this.db = firebase.firestore();
+            try {
+                this.db.collection('restaurants')
+                    .onSnapshot((querySnapshot) => {
+                        this.restaurants = [];
+                        querySnapshot.forEach((doc) => {
+                            this.restaurants.push(doc.data());
+                        });
+                    });
+            } catch (error) {
+                console.log("Failed to retrieved restaurants snapshot.");
+            }
         }
     },
     /**
@@ -44,20 +56,45 @@ export var FirebaseUtils = {
     },
     /**
      * Retrieve the entire collection of Restaurants 
-     * @returns {QueryDocumentSnapshot} Array
+     * @returns {Promise}
      */
     allRestaurants: async function()
     {
-        try {
-            let list = await this.db.collection('restaurants').get();
-            let docs = await list.docs;
-            let data = docs.map((val) => {
-                return val.data();
-            })
-            return await data;
-        } catch (error) {
-            console.error("Error Retriving All Restaurants: ", error);
+        if (this.restaurants.length > 0) {
+            return new Promise.resolve(this.restaurants);
         }
+        return new Promise(function (resolve, reject) {
+            (function waitForList() {
+                if (FirebaseUtils.restaurants.length > 0)
+                    return resolve(FirebaseUtils.restaurants);
+                
+                setTimeout(waitForList, 10);
+            })();
+        });
+    },
+
+    /**
+     * Retrive one random restaurant
+     * @returns {QueryDocumentSnapshot}
+     */
+    randomRestaurant: async function()
+    {
+        if (this.restaurants.length > 0) {
+            let rand_restaurant = 
+                this.restaurants[Math.floor(Math.random() * this.restaurants.length)];
+            return new Promise.resolve(rand_restaurant);
+        }
+        return new Promise(function (resolve, reject) {
+            (function waitForList() {
+                if (FirebaseUtils.restaurants.length > 0) {
+                    let rand_restaurant = 
+                        FirebaseUtils.restaurants[Math.floor(Math.random() * FirebaseUtils.restaurants.length)];
+                    return resolve(rand_restaurant);
+                }
+                
+                setTimeout(waitForList, 10);
+            })();
+        });
     }
 };
 export default FirebaseUtils;

@@ -5,11 +5,15 @@ import FirebaseUtils from './components/FirebaseUtils';
 import RestaurantList from './components/RestaurantList';
 import MainScreen from './components/MainScreen';
 import LoadingScreen from './components/LoadingScreen';
+import RandomRestaurant from './components/RandomRestaurant';
 
 export default function App() {
   FirebaseUtils.init();
   return (
-    <MainScreen />
+    <View>
+      <MainScreen />
+      <RandomRestaurant />
+    </View>
   );
 }
 
