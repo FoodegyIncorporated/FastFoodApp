@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
@@ -13,15 +14,35 @@ export default function App() {
     <View>
       <MainScreen />
       <RandomRestaurant />
-    </View>
-  );
-}
+=======
+import { StyleSheet, Text, View,ImageBackground} from 'react-native'
+import Swipes from './assets/Components/Swipes'
+import React, { useState, useEffect, useRef } from 'react'
 
-const styles = StyleSheet.create({
+export default function App() {
+  
+  return (
+    <View style={styles.container}>
+      <Swipes/>
+>>>>>>> Stashed changes
+    </View>
+   
+    
+    
+);
+ }
+
+ const styles = StyleSheet.create({
   container: {
     flex: 1,
+<<<<<<< Updated upstream
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
 });
+=======
+    alignItems:'center',
+  },})
+
+>>>>>>> Stashed changes
