@@ -2,7 +2,6 @@ import React from 'react';
 import { Platform, Text, Image, StyleSheet, View, ImageBackground } from 'react-native';
 import HelpButton from './HelpButton';
 
-
 function MainScreen(props) {
     return (
         <View style={styles.container}>
@@ -13,10 +12,10 @@ function MainScreen(props) {
             >
                 <View style={styles.buttons}>
                     <Text>Menu Here!!!</Text>
-                    <HelpButton></HelpButton>
+                    <HelpButton/>
                 </View>
             </ImageBackground>
-            
+
         </View>
     );
 }
