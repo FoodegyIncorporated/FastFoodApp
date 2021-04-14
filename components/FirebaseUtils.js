@@ -55,6 +55,22 @@ export var FirebaseUtils = {
             });
     },
     /**
+     * Create new user with email+password
+     * Initializes user object 
+     * @param {string} email 
+     * @param {string} password 
+     */
+    createUser: async function(email, password)
+    {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then((userCred) => {
+                this.user = userCred;
+            })
+            .catch((error) => {
+                console.log("User Creating Failed: " + error.code + " - " + error.message);
+            });
+    },
+    /**
      * Retrieve the entire collection of Restaurants 
      * @returns {Promise}
      */
