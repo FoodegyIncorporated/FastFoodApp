@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform, Text, Image, StyleSheet, View, ImageBackground } from 'react-native';
 import HelpButton from './HelpButton';
+import RandomRestaurant from './RandomRestaurant'
 
 
 function MainScreen(props) {
@@ -11,9 +12,8 @@ function MainScreen(props) {
             source={require("../assets/uiForApp/mainScreen.png")} 
             style={styles.image}
             >
-                <View style={styles.buttons}>
-                    <Text>Menu Here!!!</Text>
-                    <HelpButton></HelpButton>
+                <View style={styles.text1}>
+                <RandomRestaurant />
                 </View>
             </ImageBackground>
             
@@ -35,6 +35,11 @@ const styles = StyleSheet.create({
     buttons: {
         flexDirection:'row',
         justifyContent: 'space-between',
+    },
+    text1: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
 });
 

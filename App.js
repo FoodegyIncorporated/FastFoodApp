@@ -10,10 +10,8 @@ import RandomRestaurant from './components/RandomRestaurant';
 export default function App() {
   FirebaseUtils.init();
   return (
-    <View>
-      <MainScreen />
-      <RandomRestaurant />
-    </View>
+      <MainScreen> 
+      </MainScreen>
   );
 }
 
