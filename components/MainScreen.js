@@ -3,7 +3,6 @@ import { Platform, Text, Image, StyleSheet, View, ImageBackground } from 'react-
 import HelpButton from './HelpButton';
 import RandomRestaurant from './RandomRestaurant'
 
-
 function MainScreen(props) {
     return (
         <View style={styles.container}>
@@ -11,12 +10,14 @@ function MainScreen(props) {
             <ImageBackground 
             source={require("../assets/uiForApp/mainScreen.png")} 
             style={styles.image}
-            >
+            > </ImageBackground>
                 <View style={styles.text1}>
-                <RandomRestaurant />
+                    <RandomRestaurant />
+                    <View style={styles.buttons}>
+                        <Text>Menu Here!!!</Text>
+                        <HelpButton/>
+                    </View>
                 </View>
-            </ImageBackground>
-            
         </View>
     );
 }
