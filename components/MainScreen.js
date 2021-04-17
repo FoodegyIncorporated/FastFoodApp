@@ -1,15 +1,16 @@
 import React from 'react';
 import { Platform, Text, Image, StyleSheet, View, ImageBackground} from 'react-native';
 import HelpButton from './HelpButton';
+import CircularImage from './CircularImage';
 
 function MainScreen(props) {
     return (
-        <View style={styles.container}>
+        <ImageBackground 
+        source={require("../assets/uiForApp/mainScreen.png")} 
+        style={styles.backgorund}
+        >
+            <View style={styles.container}>
 
-            <ImageBackground 
-            source={require("../assets/uiForApp/mainScreen.png")} 
-            style={styles.image}
-            >
                 <View style={styles.buttons}>
                 
                     <View style={styles.button}>
@@ -23,32 +24,31 @@ function MainScreen(props) {
                 <View style={styles.titles}>
                     <Text style={styles.title}>Foodegy</Text>
                 </View>
+                <View style={styles.circle}>
+                    <CircularImage/>
+                </View>
                 <View style={styles.swipe}>
                     <Text style={styles.text}>{"Like: swipe right\nDislike: swipe left"}</Text>
                 </View>
                 
-            </ImageBackground>
-
-        </View>
+            </View>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "black",
         flex: 1,
         paddingTop: Platform.OS === 'android' ? 20 : 0,
-
     },
-    image: {
+    backgorund: {
         width: "100%",
         height: "100%",
     },
     buttons: {
-        height: '15%',
+        height: '10%',
         width: '100%',
         flexDirection:'row',
-        alignItems: 'center',
         justifyContent: 'space-between',
     },
     button: {
@@ -57,19 +57,24 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     titles: {
+        height: '15%',
         width: '100%',
-        alignItems: 'center',
+        justifyContent: 'center'
     },
     title: {
         fontSize: 50,
         fontWeight: '500',
         color: '#fff',
+        textAlign: "center",
+    },
+    circle: {
+        height: '60%',
+        width: '100%',
     },
     swipe: {
+        height: '15%',
         width: '100%',
-        alignItems: 'center',
-        position: 'absolute',
-        top: '85%',
+        justifyContent: 'center',
     },
     text:{
         fontSize: 25,
