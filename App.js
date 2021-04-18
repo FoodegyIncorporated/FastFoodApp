@@ -8,11 +8,13 @@ import LoadingScreen from './components/LoadingScreen';
 import RandomRestaurant from './components/RandomRestaurant';
 import LoginButton from './components/LoginButton';
 import HelpButton from './components/HelpButton';
+import LogInScreen from './components/LogInScreen';
+import loginButton from './components/LoginButton';
 
 export default function App() {
   FirebaseUtils.init();
   return (
-      <LoginButton />
+      <LogInScreen/>
   );
 }
 

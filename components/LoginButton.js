@@ -4,9 +4,9 @@ import { ImageBackground, StyleSheet, View, Image, Text, Button } from 'react-na
 function loginButton(props) {
     const handlePress = () => console.log("Button Pressed");
     return (
-        <ImageBackground 
+        <View
         style = {styles.background}
-        source = {require("../assets/splash.png")}>
+        >
 
             <View style={styles.logoContainer}>
             <Image style = {styles.logo} source = {require("../assets/favicon.png")}/>
@@ -22,7 +22,7 @@ function loginButton(props) {
                 <Button color = "white" title = "Register" onPress = {handlePress}/>
             </View>
             
-        </ImageBackground>
+        </View>
     );
 }
 
