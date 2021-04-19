@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ImageBackground, StyleSheet, View, Image, Text, Button } from 'react-native';
+import { ImageBackground, StyleSheet, View, Image, Text, Button, Platform } from 'react-native';
 
 function loginButton({navigation}) {
     const handlePress = () => console.log("Button Pressed");
@@ -72,8 +72,13 @@ const styles = StyleSheet.create ({
         justifyContent: "flex-end",
         alignItems: "center",
         width: "100%",
-        backgroundColor: "white",
-        padding: 20,
+        ...Platform.select({
+            ios: {
+                backgroundColor: "white"
+            }
+        }),
+        paddingTop: 20,
+        paddingBottom: 0,
     },
     bottomButton:{
         width: "100%",
