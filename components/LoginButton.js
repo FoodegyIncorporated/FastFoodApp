@@ -18,16 +18,16 @@ function loginButton({navigation}) {
             </View>
             <View style={styles.logoContainer}>
                 <Image style = {styles.logo} source = {require("../assets/uiForApp/logoForApp.png")}/>
-                <Text style={styles.subtitle}>Choose What To Eat With Ease</Text>
+                <Text style={styles.subtitle}>Choose What To Eat With Ease!</Text>
             </View>
             <View style={styles.footer}>
-                <View style = {styles.bottomButton}>
+                <View style = {styles.firstBottomButton}>
                     <Button title="Log In" color="#fc5c65" onPress={handlePress} />
                 </View>
-                <View style = {styles.bottomButton}>
+                <View style = {styles.secondBottomButton}>
                     <Button title="Register" color="#43cdc4" onPress={handlePress} />
                 </View>
-                <View style = {styles.bottomButton}>
+                <View style = {styles.thirdBottomButton}>
                     <Button title="Continue as Guest" color="#a0a0a0" onPress={handleGuest} />
                 </View>
             </View>
@@ -73,8 +73,17 @@ const styles = StyleSheet.create ({
         alignItems: "center",
         width: "100%",
     },
-    bottomButton:{
+    firstBottomButton:{
         width: "100%",
+        backgroundColor: "grey"
+    },
+    secondBottomButton:{
+        width: "100%",
+        backgroundColor: "blue"
+    },
+    thirdBottomButton:{
+        width: "100%",
+        backgroundColor: "green"
     },
 });
 
