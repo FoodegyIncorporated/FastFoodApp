@@ -13,7 +13,7 @@ import HelpButton from './components/HelpButton';
 export default function App() {
   FirebaseUtils.init();
   return (
-      <LoginButton />
+      <MainScreen />
   );
 }
 
