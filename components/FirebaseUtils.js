@@ -68,6 +68,7 @@ export var FirebaseUtils = {
             })
             .catch((error) => {
                 console.log("User Creating Failed: " + error.code + " - " + error.message);
+                return error;
             });
     },
     /**
