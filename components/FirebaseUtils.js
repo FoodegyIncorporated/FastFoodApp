@@ -52,6 +52,7 @@ export var FirebaseUtils = {
             })
             .catch((error) => {
                 console.log("User Auth Failed: " + error.code + " - " + error.message);
+                return error;
             });
     },
     /**
