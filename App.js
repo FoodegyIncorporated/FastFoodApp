@@ -1,36 +1,32 @@
 import 'react-native-gesture-handler';
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import FirebaseUtils from './components/FirebaseUtils';
-import RestaurantList from './components/RestaurantList';
-import MainScreen from './components/MainScreen';
-import LoadingScreen from './components/LoadingScreen';
-import RandomRestaurant from './components/RandomRestaurant';
 import LoginButton from './components/LoginButton';
-<<<<<<< HEAD
-=======
-import HelpButton from './components/HelpButton';
-import LogInScreen from './components/LogInScreen';
-import loginButton from './components/LoginButton';
->>>>>>> origin/logInScreen
+import MainScreen from './components/MainScreen';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   FirebaseUtils.init();
   return (
-<<<<<<< HEAD
-      <MainScreen/>
-=======
-      <LogInScreen/>
->>>>>>> origin/logInScreen
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Login"
+              component={LoginButton}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Main"
+              component={MainScreen}
+              options={{headerShown: false}}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'flex-start',
-    paddingTop: Platform.OS === 'android' ? 20 : 0,
-  },
-});
