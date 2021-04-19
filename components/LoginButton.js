@@ -72,6 +72,8 @@ const styles = StyleSheet.create ({
         justifyContent: "flex-end",
         alignItems: "center",
         width: "100%",
+        backgroundColor: "white",
+        padding: 20,
     },
     bottomButton:{
         width: "100%",
