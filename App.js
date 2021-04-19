@@ -4,8 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import FirebaseUtils from './components/FirebaseUtils';
-import LoginButton from './components/LoginButton';
 import MainScreen from './components/MainScreen';
+import LogInScreen from './components/LogInScreen';
+import AccessScreen from './components/AccessScreen';
 
 const Stack = createStackNavigator();
 
@@ -16,13 +17,18 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
-              name="Login"
-              component={LoginButton}
+              name="Access"
+              component={AccessScreen}
               options={{headerShown: false}}
             />
             <Stack.Screen
               name="Main"
               component={MainScreen}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="LoginScreen"
+              component={LogInScreen}
               options={{headerShown: false}}
             />
           </Stack.Navigator>

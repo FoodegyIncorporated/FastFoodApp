@@ -2,10 +2,13 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ImageBackground, StyleSheet, View, Image, Text, Button, Platform } from 'react-native';
 
-function loginButton({navigation}) {
+function AccessScreen({navigation}) {
     const handlePress = () => console.log("Button Pressed");
     const handleGuest = () => {
         navigation.navigate('Main');
+    };
+    const handleLogin = () => {
+        navigation.navigate('LoginScreen');
     };
     return (
         <SafeAreaView style={styles.container}>
@@ -22,7 +25,7 @@ function loginButton({navigation}) {
             </View>
             <View style={styles.footer}>
                 <View style = {styles.bottomButton}>
-                    <Button title="Log In" color="#fc5c65" onPress={handlePress} />
+                    <Button title="Log In" color="#fc5c65" onPress={handleLogin} />
                 </View>
                 <View style = {styles.bottomButton}>
                     <Button title="Register" color="#43cdc4" onPress={handlePress} />
@@ -85,4 +88,4 @@ const styles = StyleSheet.create ({
     },
 });
 
-export default loginButton;
+export default AccessScreen;
