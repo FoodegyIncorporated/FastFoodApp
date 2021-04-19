@@ -1,7 +1,14 @@
 import React from 'react';
 import { Image, ImageBackground, StyleSheet, View, Text } from 'react-native';
 
-function LoadingScreen(props) {
+function LoadingScreen({navigation}) {
+    React.useEffect(() => {
+      const loaded = navigation.addListener('transitionEnd', (e) => {
+        navigation.navigate('Main');
+      }, [navigation]);
+
+      return loaded;
+    });
     return (
         <View style={styles.image}>
 
