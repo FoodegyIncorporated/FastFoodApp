@@ -46,14 +46,7 @@ export var FirebaseUtils = {
      */
     signIn: async function(email, password)
     {
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .then((userCred) => {
-                this.user = userCred;
-            })
-            .catch((error) => {
-                console.log("User Auth Failed: " + error.code + " - " + error.message);
-                return error;
-            });
+        return firebase.auth().signInWithEmailAndPassword(email, password);
     },
     /**
      * Create new user with email+password
