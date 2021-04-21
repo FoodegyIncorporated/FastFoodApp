@@ -45,7 +45,10 @@ async function BeginImport(user)
             name: val[0],
             cuisine: val[1],
             cost: val[2].length,
-            rating: val[3]
+            rating: val[3],
+            address: val[4],
+            phone: val[5],
+            image: val[6]
         }, { merge: true })
         .then(() => console.log("Created or Updated Restaurant: " + val[0]))
         .catch((error) => {

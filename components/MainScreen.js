@@ -1,40 +1,77 @@
 import React from 'react';
-import { Platform, Text, Image, StyleSheet, View, ImageBackground } from 'react-native';
+import { Platform, Text, Image, StyleSheet, View, ImageBackground} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import HelpButton from './HelpButton';
-
+import CircularImage from './CircularImage';
 
 function MainScreen(props) {
     return (
-        <View style={styles.container}>
-
+        <SafeAreaView style={styles.container}>
             <ImageBackground 
-            source={require("../assets/uiForApp/mainScreen.png")} 
-            style={styles.image}
+            source={require("../assets/uiForApp/ScreenForComponents.png")} 
+            style={styles.background}
             >
                 <View style={styles.buttons}>
-                    <Text>Menu Here!!!</Text>
-                    <HelpButton></HelpButton>
+                    <HelpButton/>
+                </View>
+                <View style={styles.titles}>
+                    <Text style={styles.title}>Foodegy</Text>
+                </View>
+                <View style={styles.circle}>
+                    <CircularImage/>
+                </View>
+                <View style={styles.swipe}>
+                    <Text style={styles.text}>{"Like: swipe right\nDislike: swipe left"}</Text>
                 </View>
             </ImageBackground>
-            
-        </View>
+        </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "black",
         flex: 1,
-        paddingTop: Platform.OS === 'android' ? 20 : 0,
-
     },
-    image: {
+    background: {
         width: "100%",
         height: "100%",
     },
     buttons: {
-        flexDirection:'row',
-        justifyContent: 'space-between',
+        position: "absolute",
+        right: 7,
+        top: 7,
+        elevation: 3,
+        zIndex: 1
+    },
+    titles: {
+        flex: 1,
+        width: '100%',
+        justifyContent: 'center',
+        backgroundColor: 'rgb(245, 126, 126)',
+        elevation: 2,
+        paddingTop: 5,
+        paddingBottom: 5,
+    },
+    title: {
+        fontSize: 50,
+        fontWeight: '500',
+        color: '#fff',
+        textAlign: "center",
+    },
+    circle: {
+        flex: 7,
+        width: '100%',
+    },
+    swipe: {
+        flex: 3,
+        width: '100%',
+        justifyContent: 'center',
+    },
+    text:{
+        fontSize: 25,
+        fontWeight: '100',
+        textAlign: "center",
+        color: 'white',
     }
 });
 
