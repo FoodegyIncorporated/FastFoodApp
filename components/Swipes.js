@@ -9,14 +9,14 @@ function Swipes() {
   const renderLeftActions = () => {
     return (
         <View style={styles.container}>
-        <Image source={require('../pics/iPhone_XR_XS_Max_11_1.png')} />
+        <Image source={require('../assets/pics/ironman.jpg')} />
         </View>
         )
     }
 const renderRightActions = () => {
     return (
          <View style={styles.container}>
-                <Image source={require('../pics/download.png')} />
+                <Image source={require('../assets/pics/download.png')} />
                 </View>
                 )
     }
@@ -36,7 +36,7 @@ const renderRightActions = () => {
     >
      
         <View style={styles.container}>
-        <Image source={require('../pics/download.png')} />
+        <Image source={require('../assets/pics/download.png')} />
         </View>
                 
     </Swipeable>
@@ -47,6 +47,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems:'center',
+    marginTop:250,
+  
   },
 })
 export default Swipes
