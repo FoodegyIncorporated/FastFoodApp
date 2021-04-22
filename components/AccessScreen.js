@@ -65,10 +65,12 @@ const styles = StyleSheet.create ({
     logo: {
         height: 150,
         width: 150,
+        bottom: 100,
     },
     subtitle: {
         fontSize: 24,
         color: 'white',
+        bottom: 50,
     },
     footer: {
         flex: 1,
