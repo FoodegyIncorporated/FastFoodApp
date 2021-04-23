@@ -3,14 +3,12 @@ import { Platform, Text, Image, StyleSheet, View, ImageBackground} from 'react-n
 import { SafeAreaView } from 'react-native-safe-area-context';
 import HelpButton from './HelpButton';
 import CircularImage from './CircularImage';
+import Swipes from './Swipes'
 
 function MainScreen(props) {
     return (
         <SafeAreaView style={styles.container}>
-            <ImageBackground 
-            source={require("../assets/uiForApp/ScreenForComponents.png")} 
-            style={styles.background}
-            >
+            <View style={styles.containers}>
                 <View style={styles.buttons}>
                     <HelpButton/>
                 </View>
@@ -18,12 +16,9 @@ function MainScreen(props) {
                     <Text style={styles.title}>Foodegy</Text>
                 </View>
                 <View style={styles.circle}>
-                    <CircularImage/>
-                </View>
-                <View style={styles.swipe}>
-                    <Text style={styles.text}>{"Like: swipe right\nDislike: swipe left"}</Text>
-                </View>
-            </ImageBackground>
+                    <Swipes />
+                </View> 
+            </View> 
         </SafeAreaView>
     );
 }
@@ -31,25 +26,27 @@ function MainScreen(props) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "rgb(255, 125, 125)"
     },
-    background: {
-        width: "100%",
-        height: "100%",
+    containers: {
+        flex: 1,
+        bottom: 60,
+        backgroundColor: "rgb(255, 125, 125)"
     },
     buttons: {
         position: "absolute",
-        right: 7,
-        top: 7,
+        right: 25,
+        top: 85,
         elevation: 3,
         zIndex: 1
     },
     titles: {
-        flex: 1,
         width: '100%',
+        top: 60,
         justifyContent: 'center',
         backgroundColor: 'rgb(245, 126, 126)',
         elevation: 2,
-        paddingTop: 5,
+        paddingTop: 25,
         paddingBottom: 5,
     },
     title: {
@@ -59,13 +56,9 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     circle: {
-        flex: 7,
+        position: 'absolute',
         width: '100%',
-    },
-    swipe: {
-        flex: 3,
-        width: '100%',
-        justifyContent: 'center',
+        height: '108%',
     },
     text:{
         fontSize: 25,
