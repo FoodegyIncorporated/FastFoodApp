@@ -1,9 +1,62 @@
 import React from 'react';
-import { Image, View, StyleSheet, ImageBackground } from 'react-native';
+import { Image, View, StyleSheet, ImageBackground, ScrollView } from 'react-native';
+import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 function CircularImage(props) {
+    const renderLeftActions = () => {
+        return (
+            <View style={styles.container}>
+            <View style={[styles.background, styles.shadow]}>
+                <Image
+                 style={styles.image}
+                 blurRadius={1}
+                 source={require("../assets/pizza_placeHolder.jpg")}
+                />
+            </View>
+            <View style={[styles.original, styles.shadow]}>
+                <Image
+                 style={styles.image}
+                 source={require("../assets/pics/download.png")}
+                ></Image>
+            </View>
+            </View>
+            )
+        }
+    const renderRightActions = () => {
+        return (
+            <View style={styles.container}>
+            <View style={[styles.background, styles.shadow]}>
+                <Image
+                 style={styles.image}
+                 blurRadius={1}
+                 source={require("../assets/pizza_placeHolder.jpg")}
+                />
+            </View>
+            <View style={[styles.original, styles.shadow]}>
+                <Image
+                 style={styles.image}
+                 source={require("../assets/pics/download.png")}
+                ></Image>
+            </View>
+            </View>
+                    )
+        }
+    
+    
+    
     return (
+       
+
+        <ScrollView ref='scrollView' contentContainerStyle={styles.container}>
         <View style={styles.container}>
+             <Swipeable
+        
+        friction={2}
+        leftThreshold={40}
+        rightThreshold={40}
+        renderLeftActions={renderLeftActions}
+        renderRightActions={renderRightActions}
+       >
             <View style={[styles.background, styles.shadow]}>
                 <Image
                  style={styles.image}
@@ -17,15 +70,19 @@ function CircularImage(props) {
                  source={require("../assets/pizza_placeHolder.jpg")}
                 ></Image>
             </View>
+            </Swipeable>
         </View>
+        </ScrollView>
+        
     );
 }
 
 const styles = StyleSheet.create({
     container :{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        
+        flex:1,
+        flexDirection:'column',
+      
     },
     original: {
         position: 'absolute',
@@ -50,7 +107,7 @@ const styles = StyleSheet.create({
         borderRadius: 300/2,
         height: 300,
         width: 300,
-        borderWidth: 4,
+        borderWidth: 3,
         borderColor: 'white',
     }
 })

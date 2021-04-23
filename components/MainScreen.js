@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
     },
     circle: {
         flex: 7,
-        width: '100%',
+       
+        
     },
     swipe: {
         flex: 3,
@@ -68,6 +69,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     text:{
+        padding:10,
+        paddingTop:5,
         fontSize: 25,
         fontWeight: '100',
         textAlign: "center",
