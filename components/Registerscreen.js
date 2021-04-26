@@ -10,7 +10,7 @@ function Registerscreen(props) {
     const createOneButtonAlert = () =>
         Alert.alert(
             "User Authentication Failed",
-            "Make Sure Email Is Correct/Use Email",
+            "Make Sure Email Is Correct/Make Sure Passwords Match",
             [
                 {
                     text: "Ok",
@@ -18,11 +18,35 @@ function Registerscreen(props) {
                 },
             ]
         );
+
+    const createAlert = () =>
+        Alert.alert(
+            "Passwords do not match",
+            "Make Sure Passwords Match",
+            [
+                {
+                    text: "Ok",
+                    onPress: () => console.log("Ok pressed"),
+                },
+            ]
+        );
+
+    const passwordVerify = () => {
+            if (confirmpass != password){
+                createAlert();
+            }
+            else
+            { 
+                handlePress();
+            }
+        }
+
     const handlePress = () => {
-        FirebaseUtils.createUser(confirmpass,email,password)
-        .then((confirmpass) => console.log("Success"))
+        FirebaseUtils.createUser(email,password)
+        .then((email) => console.log("Success"))
         .catch((error) =>{createOneButtonAlert()});
     }
+
     
 
     return (
@@ -57,12 +81,13 @@ function Registerscreen(props) {
           value = {confirmpass}
           placeholder = "Confirm password"
           placeholderTextColor = "white"
+          secureTextEntry = {true}
           />
           <View style = {styles.registerSubmit}>
             <Button
             title = "Register" 
             color = "white" 
-            onPress = {handlePress}
+            onPress = {passwordVerify}
             />
           </View>
           <Text></Text>
