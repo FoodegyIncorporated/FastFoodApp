@@ -42,7 +42,7 @@ export default function Swipes() {
 
             if(isActionActive) {
                 Animated.timing(swipe, {
-                    duration: 500,
+                    duration: 800,
                     toValue: {
                         x: direction * CARD.OUT_OF_SCREEN,
                         y: dy,
@@ -71,7 +71,7 @@ export default function Swipes() {
     const handleChoice = useCallback((direction) => {
         Animated.timing(swipe.x, {
             toValue: direction * CARD.OUT_OF_SCREEN,
-            duration: 400,
+            duration: 800,
             useNativeDriver: true,
         }).start(removeTopCard);
     }, [removeTopCard, swipe.x]);
@@ -101,9 +101,9 @@ export default function Swipes() {
 
 const pics = [
     {id: '1', source: require("../assets/Restaurant_images/dunkin/1.png")},
-    {id: '2', source: require("../assets/pizza_placeHolder.jpg")},
-    {id: '3', source: require("../assets/pizza_placeHolder.jpg")},
-    {id: '4', source: require("../assets/pizza_placeHolder.jpg")},
+    {id: '2', source: require("../assets/Restaurant_images/subway/1.png")},
+    {id: '3', source: require("../assets/Restaurant_images/starbucks/1.png")},
+    {id: '4', source: require("../assets/Restaurant_images/chilis/1.png")},
 ];
 
 function Card({id, source, isFirst, swipe, tiltSign, ...rest}) {
@@ -170,7 +170,7 @@ function Card({id, source, isFirst, swipe, tiltSign, ...rest}) {
 function Choice({type}) {
     const color = COLORS[type];
     return(
-        <View style={[styles.container3, {borderColor: color}]}>
+        <View style={[styles.container3, {borderColor: color}, {backgroundColor: 'white'}]}>
             <Text style={[styles.text, { color }]}>{type}</Text>
         </View>
     );
