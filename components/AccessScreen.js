@@ -10,6 +10,9 @@ function AccessScreen({navigation}) {
     const handleLogin = () => {
         navigation.navigate('LoginScreen');
     };
+    const handleRegister = () => {
+        navigation.navigate('Registerscreen');
+    };
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground 
@@ -28,7 +31,7 @@ function AccessScreen({navigation}) {
                     <Button title="Log In" color="#fc5c65" onPress={handleLogin} />
                 </View>
                 <View style = {styles.bottomButton}>
-                    <Button title="Register" color="#43cdc4" onPress={handlePress} />
+                    <Button title="Register" color="#43cdc4" onPress={handleRegister} />
                 </View>
                 <View style = {styles.bottomButton}>
                     <Button title="Continue as Guest" color="#a0a0a0" onPress={handleGuest} />

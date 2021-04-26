@@ -7,6 +7,7 @@ import FirebaseUtils from './components/FirebaseUtils';
 import MainScreen from './components/MainScreen';
 import LogInScreen from './components/LogInScreen';
 import AccessScreen from './components/AccessScreen';
+import Registerscreen from './components/Registerscreen';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,11 @@ export default function App() {
             <Stack.Screen
               name="LoginScreen"
               component={LogInScreen}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Registerscreen"
+              component={Registerscreen}
               options={{headerShown: false}}
             />
           </Stack.Navigator>
