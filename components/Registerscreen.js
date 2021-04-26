@@ -10,7 +10,7 @@ function Registerscreen(props) {
     const createOneButtonAlert = () =>
         Alert.alert(
             "User Authentication Failed",
-            "Make Sure Email Is Correct/Make Sure Passwords Match",
+            "Make Sure Email Is Correct/User Already Exists",
             [
                 {
                     text: "Ok",
@@ -30,9 +30,23 @@ function Registerscreen(props) {
                 },
             ]
         );
+    const createAlertL = () =>
+        Alert.alert(
+            "Passwords is too short",
+            "Make Sure Passwords is longer than 6 characters",
+            [
+                {
+                    text: "Ok",
+                    onPress: () => console.log("Ok pressed"),
+                },
+            ]
+        );
 
     const passwordVerify = () => {
-            if (confirmpass != password){
+            if (password.length < 6){
+                createAlertL();
+            }
+            else if (confirmpass != password){
                 createAlert();
             }
             else
