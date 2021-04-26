@@ -56,14 +56,7 @@ export var FirebaseUtils = {
      */
     createUser: async function(email, password)
     {
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then((userCred) => {
-                this.user = userCred;
-            })
-            .catch((error) => {
-                console.log("User Creating Failed: " + error.code + " - " + error.message);
-                return error;
-            });
+        firebase.auth().createUserWithEmailAndPassword(email, password);
     },
     /**
      * Retrieve the entire collection of Restaurants 
