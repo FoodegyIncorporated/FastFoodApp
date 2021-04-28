@@ -8,6 +8,7 @@ import MainScreen from './components/MainScreen';
 import LogInScreen from './components/LogInScreen';
 import AccessScreen from './components/AccessScreen';
 import Registerscreen from './components/Registerscreen';
+import RestaurantDetail from './components/RestaurantDetail';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,11 @@ export default function App() {
             <Stack.Screen
               name="Registerscreen"
               component={Registerscreen}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="RestaurantDetail"
+              component={RestaurantDetail}
               options={{headerShown: false}}
             />
           </Stack.Navigator>
