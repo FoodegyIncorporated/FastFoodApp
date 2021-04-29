@@ -84,17 +84,11 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     drawerIcon:{
-        // backgroundColor:"red",
-        // position:'absolute',
-        // left:20,
         justifyContent:"center",
-        // alignItems:"center",
         height:20,
         width:20,
         marginTop:20,
         marginLeft:20,
-         // elevation: 2,
-        // alignSelf:"center"
     },
     drawerContain:{
         position:'absolute',

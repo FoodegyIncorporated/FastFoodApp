@@ -8,6 +8,7 @@ import MainScreen from './components/MainScreen';
 import LogInScreen from './components/LogInScreen';
 import AccessScreen from './components/AccessScreen';
 import Registerscreen from './components/Registerscreen';
+import {DrawerStackNavigator} from './navigation'
 
 const Stack = createStackNavigator();
 
@@ -16,28 +17,30 @@ export default function App() {
   return (
       <SafeAreaProvider>
         <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen
-              name="Access"
-              component={AccessScreen}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="Main"
-              component={MainScreen}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="LoginScreen"
-              component={LogInScreen}
-              options={{headerShown: false}}
-            />
-            <Stack.Screen
-              name="Registerscreen"
-              component={Registerscreen}
-              options={{headerShown: false}}
-            />
-          </Stack.Navigator>
+          <DrawerStackNavigator>
+            <Stack.Navigator>
+              <Stack.Screen
+                name="Access"
+                component={AccessScreen}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="Main"
+                component={MainScreen}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="LoginScreen"
+                component={LogInScreen}
+                options={{headerShown: false}}
+              />
+              <Stack.Screen
+                name="Registerscreen"
+                component={Registerscreen}
+                options={{headerShown: false}}
+              />
+            </Stack.Navigator>
+          </DrawerStackNavigator>
         </NavigationContainer>
       </SafeAreaProvider>
   );

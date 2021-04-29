@@ -88,9 +88,7 @@ const styles = StyleSheet.create ({
         width: 250,
         margin: 12,
         borderWidth: 1,
-    },
-
-    
+    },    
 });
 
 export default LogInScreen;

@@ -1,23 +1,34 @@
 import React from 'react';
-import { Platform, Text, Image, StyleSheet, View, ImageBackground} from 'react-native';
+import { Platform, Text, Image, StyleSheet, View, ImageBackground, TouchableOpacity} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import HelpButton from './HelpButton';
 import CircularImage from './CircularImage';
 import Swipes from './Swipes'
+import FirebaseUtils from "./FirebaseUtils"
+import firebase from "firebase/app";
 
 function MainScreen(props) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.containers}>
+
+                <TouchableOpacity style={styles.drawerContain}
+                    onPress={()=>{props.navigation.toggleDrawer()}}>
+                    <Image style={styles.drawerIcon} source={require('../assets/menu.png')} />
+                </TouchableOpacity>
+
                 <View style={styles.buttons}>
                     <HelpButton/>
                 </View>
+
                 <View style={styles.titles}>
                     <Text style={styles.title}>Foodegy</Text>
                 </View>
+
                 <View style={styles.circle}>
                     <Swipes />
                 </View> 
+
             </View> 
         </SafeAreaView>
     );
@@ -65,6 +76,19 @@ const styles = StyleSheet.create({
         fontWeight: '100',
         textAlign: "center",
         color: 'white',
+    },
+    drawerIcon: {
+        justifyContent:"center",
+        height:20,
+        width:20,
+        marginTop:20,
+        marginLeft:20,
+    },
+    drawerContain:{ 
+        position:'absolute',
+        top:80,
+        elevation:200,
+        zIndex:20
     }
 });
 
