@@ -7,18 +7,52 @@ import Footer from './Footer'
 import {CARD, COLORS, ACTION_OFFSET } from './Constants'
 import {pics as picsArray} from './pics'
 import Choice from './Choice'
+import FirebaseUtils from './FirebaseUtils'
 
 export default function Swipes() {
+    const [list, setList] = useState([]);
+    let liked = [];
+    let restaurants = [];
     const [pic, setPic] = useState(picsArray);
     const swipe = useRef(new Animated.ValueXY()).current;
     const tiltSign = useRef(new Animated.Value(1)).current;
-
+    
+    initRestaurants();
+    
     useEffect(() => {
-        if(!pic.length) {
-            setPic(picsArray)
-        }
-    }, [pic.length]);
+        
+        initRestaurants();
 
+    }, [list.length]);
+
+    function shuffle(array) {
+        let currentIndex = array.length, temporaryValue, randomIndex;
+      
+        while (0 !== currentIndex) {
+      
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+      
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+        
+        return array;
+    }
+
+    function initRestaurants(){
+        if(list.length === 0) {
+            FirebaseUtils.allRestaurants().then((val) => {
+                setList(val);
+            });
+            shuffle(list);
+            console.log(typeof(list[0]));
+        }
+        restaurants = list.map(val => val ? val.image : "");
+        
+    };
+    
     const panResponder = PanResponder.create({
         onMoveShouldSetPanResponder: () => true,
         onPanResponderMove: (_,  {dx, dy, y0}) => {
@@ -38,6 +72,9 @@ export default function Swipes() {
                     },
                     useNativeDriver: true,
                 }).start(removeTopCard);
+                if(direction == 1){
+                    console.log("liked");
+                }
             }
             else {
                 Animated.spring(swipe, {
@@ -53,11 +90,14 @@ export default function Swipes() {
     });
 
     const removeTopCard = useCallback(() => {
-        setPic((prevState) => prevState.slice(1));
-        swipe.setValue({x: 0, y: 0})
+        setList((prevState) => prevState.slice(1));
+        swipe.setValue({x: 0, y: 0});
     }, [swipe]);
 
     const handleChoice = useCallback((direction) => {
+        if(direction == 1){
+            console.log("liked");
+        }
         Animated.timing(swipe.x, {
             toValue: direction * CARD.OUT_OF_SCREEN,
             duration: 1000,
@@ -65,30 +105,27 @@ export default function Swipes() {
         }).start(removeTopCard);
     }, [removeTopCard, swipe.x]);
 
+
+
     return(
         <View style={styles.container2}>
-            {pic.map(({id, source}, index) => {
-                const isFirst = index == 0;
-                const dragHandlers = isFirst ? panResponder.panHandlers : {};
-
-                return (
-                <Card 
-                    key={id} 
-                    id={id} 
-                    source={source} 
-                    isFirst={isFirst}
-                    swipe={swipe}
-                    tiltSign={tiltSign}
-                    {...dragHandlers}/>
-                );
-            }).reverse()}
+   
+            <Card 
+                swipe={swipe}
+                tiltSign={tiltSign}
+                restaurant = {restaurants[0]}
+                {...panResponder.panHandlers}
+            />
 
             <Footer handleChoice={handleChoice}/>
         </View>
     );
 }
 
-function Card({id, source, isFirst, swipe, tiltSign, ...rest}) {
+function Card({swipe, tiltSign, restaurant, ...rest}) {
+    console.log(restaurant);
+    const source = {uri:'https://raw.githubusercontent.com/FoodegyIncorporated/Foodegy-Images/master/Restaurant_images/' + restaurant};
+
 
     const rotate = Animated.multiply(swipe.x, tiltSign).interpolate({
         inputRange: [-ACTION_OFFSET, 0, ACTION_OFFSET],
@@ -137,11 +174,11 @@ function Card({id, source, isFirst, swipe, tiltSign, ...rest}) {
 
     return (
     <Animated.View 
-        style={[styles.container, isFirst && animatedCardStyle]}
+        style={[styles.container, animatedCardStyle]}
         {...rest}>
         <Image source={source} style={styles.image}/>
         {
-            isFirst && renderChoice()
+            renderChoice()
         }
     </Animated.View>
     );
@@ -172,13 +209,5 @@ const styles = StyleSheet.create({
     nopeContainer: {
         right: 45,
         transform: [{rotate: '30deg'}]
-    },
-    id: {
-        position: 'absolute',
-        bottom: 22,
-        left: 22,
-        fontSize: 36,
-        fontWeight: 'bold',
-        color: "#fff"
     },
 });
