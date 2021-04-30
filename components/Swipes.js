@@ -12,28 +12,21 @@ import FirebaseUtils from './FirebaseUtils'
 export default function Swipes() {
     const [list, setList] = useState([]);
     let liked = [];
-    let restaurants = [];
     const [pic, setPic] = useState(picsArray);
     const swipe = useRef(new Animated.ValueXY()).current;
     const tiltSign = useRef(new Animated.Value(1)).current;
     
     initRestaurants();
     
-    useEffect(() => {
-        
-        initRestaurants();
-
-    }, [list.length]);
-
     function shuffle(array) {
-        let currentIndex = array.length, temporaryValue, randomIndex;
+        let currentIndex = array.length, randomIndex;
       
         while (0 !== currentIndex) {
       
           randomIndex = Math.floor(Math.random() * currentIndex);
           currentIndex -= 1;
       
-          temporaryValue = array[currentIndex];
+          let temporaryValue = array[currentIndex];
           array[currentIndex] = array[randomIndex];
           array[randomIndex] = temporaryValue;
         }
@@ -41,16 +34,14 @@ export default function Swipes() {
         return array;
     }
 
-    function initRestaurants(){
+    function initRestaurants() {
         if(list.length === 0) {
+            console.log("Grabbing restaurant list...");
             FirebaseUtils.allRestaurants().then((val) => {
+                shuffle(val);
                 setList(val);
             });
-            shuffle(list);
-            console.log(typeof(list[0]));
         }
-        restaurants = list.map(val => val ? val.image : "");
-        
     };
     
     const panResponder = PanResponder.create({
@@ -109,23 +100,23 @@ export default function Swipes() {
 
     return(
         <View style={styles.container2}>
-   
             <Card 
                 swipe={swipe}
                 tiltSign={tiltSign}
-                restaurant = {restaurants[0]}
+                restaurant = {list.length ? list[0] : null}
                 {...panResponder.panHandlers}
             />
-
             <Footer handleChoice={handleChoice}/>
         </View>
     );
 }
 
 function Card({swipe, tiltSign, restaurant, ...rest}) {
-    console.log(restaurant);
-    const source = {uri:'https://raw.githubusercontent.com/FoodegyIncorporated/Foodegy-Images/master/Restaurant_images/' + restaurant};
-
+    let source = require('../assets/pizza_placeHolder.jpg');
+    if (restaurant) {
+        source = {uri:'https://raw.githubusercontent.com/FoodegyIncorporated/Foodegy-Images/master/Restaurant_images/' + restaurant.image};
+    }
+    console.log("Image URI: " + source.uri);
 
     const rotate = Animated.multiply(swipe.x, tiltSign).interpolate({
         inputRange: [-ACTION_OFFSET, 0, ACTION_OFFSET],
