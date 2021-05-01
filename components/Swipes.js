@@ -1,22 +1,28 @@
 import React, { useState } from 'react'
-import { StyleSheet, Image, View, Text, Animated, PanResponder } from 'react-native'
+import { StyleSheet, Image, View, Animated, PanResponder } from 'react-native'
 import { useRef } from 'react';
 import { useCallback } from 'react';
 import { useEffect } from 'react';
 import Footer from './Footer'
-import {CARD, COLORS, ACTION_OFFSET } from './Constants'
-import {pics as picsArray} from './pics'
+import {CARD, ACTION_OFFSET } from './Constants'
 import Choice from './Choice'
 import FirebaseUtils from './FirebaseUtils'
 
 export default function Swipes() {
     const [list, setList] = useState([]);
-    let liked = [];
-    const [pic, setPic] = useState(picsArray);
+    const [liked, setLiked] = useState([]);
     const swipe = useRef(new Animated.ValueXY()).current;
     const tiltSign = useRef(new Animated.Value(1)).current;
     
     initRestaurants();
+
+    const restaurant = list.length ? list[0] : null;
+    
+    useEffect(() => {
+        if(liked.length == 5)
+            console.log("move to recommended");
+
+    }, [liked.length]);
     
     function shuffle(array) {
         let currentIndex = array.length, randomIndex;
@@ -64,7 +70,8 @@ export default function Swipes() {
                     useNativeDriver: true,
                 }).start(removeTopCard);
                 if(direction == 1){
-                    console.log("liked");
+                    setLiked((prevState) => [...prevState, restaurant]);
+                    console.log(liked);
                 }
             }
             else {
@@ -87,7 +94,8 @@ export default function Swipes() {
 
     const handleChoice = useCallback((direction) => {
         if(direction == 1){
-            console.log("liked");
+            setLiked((prevState) => [...prevState, restaurant]);
+            console.log(liked);
         }
         Animated.timing(swipe.x, {
             toValue: direction * CARD.OUT_OF_SCREEN,
@@ -103,7 +111,7 @@ export default function Swipes() {
             <Card 
                 swipe={swipe}
                 tiltSign={tiltSign}
-                restaurant = {list.length ? list[0] : null}
+                restaurant = {restaurant}
                 {...panResponder.panHandlers}
             />
             <Footer handleChoice={handleChoice}/>
