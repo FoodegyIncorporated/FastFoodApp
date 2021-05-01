@@ -7,6 +7,7 @@ import Footer from './Footer'
 import {CARD, ACTION_OFFSET } from './Constants'
 import Choice from './Choice'
 import FirebaseUtils from './FirebaseUtils'
+import { set } from 'react-native-reanimated';
 
 export default function Swipes() {
     const [list, setList] = useState([]);
@@ -19,8 +20,11 @@ export default function Swipes() {
     const restaurant = list.length ? list[0] : null;
     
     useEffect(() => {
-        if(liked.length == 5)
+        // use navigation to move to the next screen
+        // pass liked array
+        if(liked.length >= 5){
             console.log("move to recommended");
+        }
 
     }, [liked.length]);
     
@@ -70,8 +74,7 @@ export default function Swipes() {
                     useNativeDriver: true,
                 }).start(removeTopCard);
                 if(direction == 1){
-                    setLiked((prevState) => [...prevState, restaurant]);
-                    console.log(liked);
+                    if(restaurant) setLiked((prevState) => [...prevState, restaurant]);
                 }
             }
             else {
@@ -92,17 +95,16 @@ export default function Swipes() {
         swipe.setValue({x: 0, y: 0});
     }, [swipe]);
 
-    const handleChoice = useCallback((direction) => {
+    const handleChoice = (direction) => {
         if(direction == 1){
-            setLiked((prevState) => [...prevState, restaurant]);
-            console.log(liked);
+            if(restaurant) setLiked((prevState) => [...prevState, restaurant]);
         }
         Animated.timing(swipe.x, {
             toValue: direction * CARD.OUT_OF_SCREEN,
             duration: 1000,
             useNativeDriver: true,
         }).start(removeTopCard);
-    }, [removeTopCard, swipe.x]);
+    };
 
 
 
