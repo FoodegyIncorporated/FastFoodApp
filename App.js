@@ -18,35 +18,7 @@ export default function App() {
   return (
       <SafeAreaProvider>
         <NavigationContainer>
-          <DrawerStackNavigator>
-            <Stack.Navigator>
-              <Stack.Screen
-                name="Access"
-                component={AccessScreen}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="Main"
-                component={MainScreen}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="LoginScreen"
-                component={LogInScreen}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-                name="Registerscreen"
-                component={Registerscreen}
-                options={{headerShown: false}}
-              />
-              <Stack.Screen
-              name="RestaurantDetail"
-              component={RestaurantDetail}
-              options={{headerShown: false}}
-              />
-            </Stack.Navigator>
-          </DrawerStackNavigator>
+          <DrawerStackNavigator />
         </NavigationContainer>
       </SafeAreaProvider>
   );

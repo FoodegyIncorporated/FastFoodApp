@@ -8,10 +8,10 @@ function AccessScreen({navigation}) {
         navigation.navigate('Main');
     };
     const handleLogin = () => {
-        navigation.navigate('LoginScreen');
+        navigation.navigate('Login');
     };
     const handleRegister = () => {
-        navigation.navigate('Registerscreen');
+        navigation.navigate('Register');
     };
     return (
         <SafeAreaView style={styles.container}>
