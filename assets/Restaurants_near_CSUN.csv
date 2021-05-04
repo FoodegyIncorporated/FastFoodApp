@@ -2,13 +2,13 @@ Restaurant Name,Cuisine ,Cost,Rating,Address ,Phone Number ,Image
 Arbor Grill,American ,$,4.1,"N Garden Grove Ave, Northridge, CA 91330",N/A,Arbor_Grill_(4.1)/Capture1.PNG
 Shake Smart,Health Food ,$$,4.6,"18111 Nordhoff St, Northridge, CA 91330",(858) 461-8313,Shake_Smart_(4.6)/capture1.PNG
 Bun Me,Vietnamese,$,4.6,"9420 Reseda Blvd #5, Northridge, CA 91324",(818) 993-0438,Bun_Me_(4.6)/Capture1.PNG
-The Pub Sports Grill,Grill,$,4.4,"The Pub Sports Grill, 18111 Nordhoff St, Northridge, CA 91330",(818) 677-7604,The_Pubs_Sports_Grill(4.4)/capture3.jpg
-Señor Sol,Mexican ,$,4.4,"3137, 9233 Reseda Blvd, Northridge, CA 91324",(818) 341-3024,Senor_Sol(4.4)/capture4.jpg
+The Pub Sports Grill,Grill,$,4.4,"The Pub Sports Grill, 18111 Nordhoff St, Northridge, CA 91330",(818) 677-7604,The_Pubs_Sports_Grill_(4.4)/capture3.jpg
+Señor Sol,Mexican ,$,4.4,"3137, 9233 Reseda Blvd, Northridge, CA 91324",(818) 341-3024,Senor_Sol_(4.4)/capture4.jpg
 California Chicken Cafe,Chicken ,$$$,4.5,"18445 Nordhoff St, Northridge, CA 91325",(818) 700-9977,California_Chicken_Cafe(4.5)/capture1.jpg
-Pita Pockets,Mediterranean,$,4.7,"9127 Reseda Blvd, Northridge, CA 91324",(818) 709-4444,Pita_Pockets(4.7)/capture1.jpg
-Falafel Palace,Middle Eastern,$,4.5,"9255 Reseda Blvd, Northridge, CA 91324",(818) 993-0734,Falafel_Palace(4.5)/capture1.jpg
+Pita Pockets,Mediterranean,$,4.7,"9127 Reseda Blvd, Northridge, CA 91324",(818) 709-4444,Pita_Pockets_(4.7)/capture1.jpg
+Falafel Palace,Middle Eastern,$,4.5,"9255 Reseda Blvd, Northridge, CA 91324",(818) 993-0734,Falafel_Palace_(4.5)/capture1.jpg
 Lum-Ka-Naad,Thai,$,4.4,"8910 Reseda Blvd, Northridge, CA 91324",(818) 882-3028,Lum-Ka-Naad_(4.4)/capture1.jpg
-California Bowl Sushi & Teriyaki,Sushi,$,4.6,"9002 Balboa Blvd, Northridge, CA 91325",(818) 920-9757,California_Bowl_Sushi&Teriyaki(4.6)/capture1.jpg
+California Bowl Sushi & Teriyaki,Sushi,$,4.6,"9002 Balboa Blvd, Northridge, CA 91325",(818) 920-9757,California_Bowl_Sushi&Teriyaki_(4.6)/capture1.jpg
 Futaba,Ramen,$$,4.5,"18429 Nordhoff St Ste. D, Northridge, CA 91325",(818) 886-2285,Futuba_(4.5)/capture1.jpg
 Sharky's,Mexican ,$$,4.4,"18426 Nordhoff St, Northridge, CA 91325",(818) 772-2800,Sharky's_(4.4)/capture2.jpg
 Szechuan Place,Chinese,$,4.4,"9250 Reseda Blvd, Northridge, CA 91324",(818) 280-5355,Szechuan_Place_(4.4)/capture1.jpg
@@ -66,19 +66,19 @@ Cupid's Hot Dogs,Fast Food,$,4.5,"9039 Lindley Ave, Northridge, CA 91325",(818) 
 Papa John's Pizza,Pizza,$,3.7,"18110 Nordhoff St, Northridge, CA 91325",(818) 882-1717,papa_johns_pizza/3.png
 leyna reyes,Tofu,$$,3.5,"9253 White Oak Ave, Northridge, CA 91325",(818) 647-2237,Leyna_Reyes/Capture3.PNG
 Orange Grove Bistro,Bistro,$$,4.1,"18111 Nordhoff St, Northridge, CA 91330",(818) 677-2076,Orange_Grove_Bistro/Capture3.PNG
-El Pollo Loco-CSUN,Mexican ,$,4,"18111 Nordhoff St, Northridge, CA 91330",(818) 717-0476,el_pollo_loco_1_(4.1)/capture3.jpg
-Burger King-CSUN,Fast Food,$,3.9,"18111 Nordhoff St, Northridge, CA 91330",(818) 677-3590,Burger_King-csun(3.8)/capture3.jpg
+El Pollo Loco-CSUN,Mexican ,$,4,"18111 Nordhoff St, Northridge, CA 91330",(818) 717-0476,el_pollo_loco/1.png
+Burger King-CSUN,Fast Food,$,3.9,"18111 Nordhoff St, Northridge, CA 91330",(818) 677-3590,Burger_King-csun(3.8)/3.png
 Panda Express-CSUN,Chinese,$,4.3,"18111 Nordhoff St, Northridge, CA 91330",(818) 727-7226,Panda_Express-CSUN_(4.3)/capture2.jpg
 Freudian Sip-CSUN1,Cafe,$,3.8,"Jacaranda Walk, Northridge, CA 91330",(818) 677-2669,Freudian_Sip-CSUN1_(3.8)/capture2.jpg
 Freudian Sip-CSUN2,Cafe,$,3,"Sierra Walk, Los Angeles, CA 91325",(818) 677-2669,Freudian_Sip-CSUN2_(3)/capture1.jpg
 Freudian Sip-CSUN3,Cafe,$,4.1,"E University Dr, Los Angeles, CA 91325",(818) 677-2669,Freudian_Sip-CSUN3_(4.1)/capture4.jpg
 Freudian Sip-CSUN4,Cafe,$,4.2,"Matador Walk, Los Angeles, CA 91325",(818) 677-2669,Freudian_Sip-CSUN4_(4.2)/capture3.jpg
 The Marketplace,Breakfast ,$,4.1,"Matador Walk, Los Angeles, CA 91325",(818) 677-3557,The_Marketplace_(4.1)/capture1.jpg
-Juice It Up!,Juice,$,4.4,"18111 Nordhoff St, Northridge, CA 91330",(818) 862-8612,Juice_It_Up!(4.4)/capture3.jpg
-Hawaiian Hot Chicken,Fast Food,$,4.4,"17646 Lassen St #5, Northridge, CA 91324",(818) 477-2590,Hawaiian_Hot_Chicken(4.4)/capture1.jpg
-El Pollo Loco-1,Mexican ,$,4.1,"16940 Nordhoff St, Northridge, CA 91343",(818) 895-1680,El_Pollo_Loco_1(4.1)/capture3.jpg
-El Pollo Loco-2,Mexican ,$,3.9,"8301 Reseda Blvd, Northridge, CA 91324",(818) 886-3157,El_Pollo_Loco_2(3.9)/capture2.jpg
-Burger King-1,Fast Food,$,3.8,"19640 Nordhoff St, Northridge, CA 91324",(818) 885-9363,Burger_King_1(3.8)/capture1.jpg
+Juice It Up!,Juice,$,4.4,"18111 Nordhoff St, Northridge, CA 91330",(818) 862-8612,Juice_It_Up!_(4.4)/capture3.jpg
+Hawaiian Hot Chicken,Fast Food,$,4.4,"17646 Lassen St #5, Northridge, CA 91324",(818) 477-2590,Hawaiian_Hot_Chicken_(4.4)/capture1.jpg
+El Pollo Loco-1,Mexican ,$,4.1,"16940 Nordhoff St, Northridge, CA 91343",(818) 895-1680,El_Pollo_Loco_1_(4.1)/capture3.jpg
+El Pollo Loco-2,Mexican ,$,3.9,"8301 Reseda Blvd, Northridge, CA 91324",(818) 886-3157,El_Pollo_Loco_2_(3.9)/capture2.jpg
+Burger King-1,Fast Food,$,3.8,"19640 Nordhoff St, Northridge, CA 91324",(818) 885-9363,Burger_King_1_(3.8)/capture1.jpg
 Burger King-2,Fast Food,$,4.1,"9025 Balboa Blvd, Northridge, CA 91325",(818) 993-7903,BurgerKing-2(4.1)/capture3.png
 Burger King-3,Fast Food,$,3.6,"8500 Reseda Blvd, Northridge, CA 91324",(818) 349-1985,BurgerKing-3(3.6)/capture2.jpg
 Panda Express-1,Chinese,$,3.9,"18427-d Nordhoff St, Northridge, CA 91325",(818) 700-2829,Panda_Express-1_(3.9)/capture3.png
@@ -100,5 +100,5 @@ Kusina Ni Kuya,Restaurant,$,4.2,"10328 1/2 Reseda Blvd, Porter Ranch, CA 91326",
 McDonald's,Fast Food,$,3.7,"10350 Reseda Blvd, Northridge, CA 91326",(818) 368-6077,McDonald's_(3.7)/capture4.png
 Xevichez sushi bar,Sushi,$,3.7,"18531 Devonshire St, Northridge, CA 91324",(747) 239-1904,Xevichez_sushi_bar_(3.7)/capture4.png
 Kababe Grill,Persian,$,4.8,"18677 Devonshire St, Northridge, CA 91324",(818) 363-6555,Kababe_Grill_(4.8)/capture2.png
-The Coffee Bean & Tea Leaf,Coffee,$,4.5,"18705 Devonshire St, Northridge, CA 91324",(818) 360-8299,The_Coffee_Bean_&_Tea_Leaf_(4.5)/capture4.png
+The Coffee Bean & Tea Leaf,Coffee,$,4.5,"18705 Devonshire St, Northridge, CA 91324",(818) 360-8299,The_Coffee_Bean&_Tea_Leaf_(4.5)/capture4.png
 Evolution Burger,Hamburger,$,4.4,"10058 Reseda Blvd, Northridge, CA 91324",(818) 605-7964,Evolution_Burger/Capture2.PNG
