@@ -7,7 +7,6 @@ import Footer from './Footer'
 import {CARD, ACTION_OFFSET } from './Constants'
 import Choice from './Choice'
 import FirebaseUtils from './FirebaseUtils'
-import { set } from 'react-native-reanimated';
 
 export default function Swipes() {
     const [list, setList] = useState([]);
@@ -75,6 +74,7 @@ export default function Swipes() {
                 }).start(removeTopCard);
                 if(direction == 1){
                     if(restaurant) setLiked((prevState) => [...prevState, restaurant]);
+                    console.log("liked");
                 }
             }
             else {
@@ -98,6 +98,7 @@ export default function Swipes() {
     const handleChoice = (direction) => {
         if(direction == 1){
             if(restaurant) setLiked((prevState) => [...prevState, restaurant]);
+            console.log("liked");
         }
         Animated.timing(swipe.x, {
             toValue: direction * CARD.OUT_OF_SCREEN,

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
-import { COLORS, ACTION_OFFSET } from './Constants'
-import React, { useState } from 'react'
+import { COLORS } from './Constants'
+import React from 'react'
 
 export default function Choice({type}) {
     const color = COLORS[type];

@@ -2,7 +2,7 @@ import React from 'react'
 import { TouchableWithoutFeedback, Animated, StyleSheet, Image, ImageBackground } from 'react-native'
 import { useRef } from 'react';
 import { useCallback } from 'react';
-export default function RoundButton({name, size, color, onPress}) {
+export default function RoundButton({name, onPress}) {
     const scale = useRef(new Animated.Value(1)).current;   
 
     const animateScale = useCallback(
