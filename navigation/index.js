@@ -13,7 +13,7 @@ import RegisterScreen from '../components/Registerscreen';
 
 import AccessScreen from '../components/AccessScreen';
 import HistoryScreen from '../components/HistoryScreen'; 
-import RecommendedScreen from '../components/RecommendedScreen'; 
+import RestaurantDetail from '../components/RestaurantDetail';
 
 import firebase from "firebase/app";
 import { ImageBackground } from "react-native";
@@ -95,12 +95,11 @@ const DrawerStackNavigator = () => {
     /> 
     <Drawer.Screen
       name="Recommended"
-      component={RecommendedScreen}
+      component={RestaurantDetail}
       options={{
           headerShown: false, 
       }}   
     /> 
-    
     <Drawer.Screen
       name="Access"
       component={AccessScreen}
