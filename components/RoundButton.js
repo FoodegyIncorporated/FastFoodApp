@@ -2,6 +2,7 @@ import React from 'react'
 import { TouchableWithoutFeedback, Animated, StyleSheet, Image, ImageBackground } from 'react-native'
 import { useRef } from 'react';
 import { useCallback } from 'react';
+
 export default function RoundButton({name, onPress}) {
     const scale = useRef(new Animated.Value(1)).current;   
 
@@ -12,9 +13,7 @@ export default function RoundButton({name, onPress}) {
                 friction: 4,
                 useNativeDriver: true,
             }).start();
-        }, 
-        [scale]
-    );
+        }, [scale]);
 
     return(
         <TouchableWithoutFeedback 

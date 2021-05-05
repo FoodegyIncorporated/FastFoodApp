@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import RoundButton from './RoundButton'
-import { COLORS } from './Constants'
 
 export default function Footer({ handleChoice }) {
     const dislike = require('../assets/uiForApp/timesPic.png');
