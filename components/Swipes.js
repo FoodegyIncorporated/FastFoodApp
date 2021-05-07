@@ -8,7 +8,7 @@ import {CARD, ACTION_OFFSET } from './Constants'
 import Choice from './Choice'
 import FirebaseUtils from './FirebaseUtils'
 
-export default function Swipes() {
+export default function Swipes({navigation}) {
     const [list, setList] = useState([]);
     const [liked, setLiked] = useState([]);
     const swipe = useRef(new Animated.ValueXY()).current;
@@ -19,10 +19,10 @@ export default function Swipes() {
     const restaurant = list.length ? list[0] : null;
     
     useEffect(() => {
-        // use navigation to move to the next screen
-        // pass liked array
+        
         if(liked.length >= 5){
-            console.log("move to recommended");
+            console.log("moving to RestaurantDetails");
+            navigation.navigate('Recommended', { liked: liked });
         }
 
     }, [liked.length]);

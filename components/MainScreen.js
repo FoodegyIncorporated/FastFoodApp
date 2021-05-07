@@ -7,7 +7,7 @@ import Swipes from './Swipes'
 import FirebaseUtils from "./FirebaseUtils"
 import firebase from "firebase/app";
 
-function MainScreen(props) {
+function MainScreen({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.containers}>
@@ -26,7 +26,7 @@ function MainScreen(props) {
                 </View>
 
                 <View style={styles.circle}>
-                    <Swipes />
+                    <Swipes navigation={navigation} />
                 </View> 
 
             </View> 

@@ -1,11 +1,11 @@
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ImageBackground, StyleSheet, Text, Image, View } from 'react-native'
-import FirebaseUtil from './FirebaseUtils'
 
 export default function RestaurantDetail({ route, navigation }) {
-    let { restaurant } = route.params;
-
+    let { liked } = route.params;
+    let restaurant = liked.length ? liked[Math.floor(Math.random() * liked.length)] : null;
+    
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground
