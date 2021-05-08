@@ -10,22 +10,22 @@ import FirebaseUtils from './FirebaseUtils'
 
 export default function Swipes({navigation}) {
     const [list, setList] = useState([]);
-    const [liked, setLiked] = useState([]);
+    const liked = useRef([]);
     const swipe = useRef(new Animated.ValueXY()).current;
     const tiltSign = useRef(new Animated.Value(1)).current;
-    
+
     initRestaurants();
 
     const restaurant = list.length ? list[0] : null;
     
     useEffect(() => {
         
-        if(liked.length >= 5){
+        if(liked.current.length >= 5){
             console.log("moving to RestaurantDetails");
-            navigation.navigate('Recommended', { liked: liked });
+            navigation.navigate('Recommended', { liked: liked.current });
         }
 
-    }, [liked.length]);
+    }, [liked.current.length]);
     
     function shuffle(array) {
         let currentIndex = array.length, randomIndex;
@@ -71,11 +71,7 @@ export default function Swipes({navigation}) {
                         y: dy,
                     },
                     useNativeDriver: true,
-                }).start(removeTopCard);
-                if(direction == 1){
-                    if(restaurant) setLiked((prevState) => [...prevState, restaurant]);
-                    console.log("liked");
-                }
+                }).start(() => removeTopCard(direction));
             }
             else {
                 Animated.spring(swipe, {
@@ -90,21 +86,21 @@ export default function Swipes({navigation}) {
         },
     });
 
-    const removeTopCard = useCallback(() => {
-        setList((prevState) => prevState.slice(1));
-        swipe.setValue({x: 0, y: 0});
-    }, [swipe]);
-
-    const handleChoice = (direction) => {
+    const removeTopCard = (direction) => {
         if(direction == 1){
-            if(restaurant) setLiked((prevState) => [...prevState, restaurant]);
+            if(restaurant) liked.current = [...liked.current, restaurant];
             console.log("liked");
         }
+        setList((prevState) => prevState.slice(1));
+        swipe.setValue({x: 0, y: 0});
+    };
+
+    const handleChoice = (direction) => {
         Animated.timing(swipe.x, {
             toValue: direction * CARD.OUT_OF_SCREEN,
             duration: 1000,
             useNativeDriver: true,
-        }).start(removeTopCard);
+        }).start(() => removeTopCard(direction));
     };
 
 
