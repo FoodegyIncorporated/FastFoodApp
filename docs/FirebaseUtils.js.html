@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: FirebaseUtils.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: FirebaseUtils.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+
+/**
+ * Firebase Auto-generated Configuration
+ * PRIVATE - Remove from history if this repo is made public
+ */
+var firebaseConfig = {
+    apiKey: "AIzaSyAbX3uI2St7-AWYld9Mjdd7SCOATFxC0ZQ",
+    authDomain: "foodegy-4357d.firebaseapp.com",
+    projectId: "foodegy-4357d",
+    storageBucket: "foodegy-4357d.appspot.com",
+    messagingSenderId: "1081555609994",
+    appId: "1:1081555609994:web:22eafd0b31327d45010073",
+    measurementId: "G-433CEVDKN5"
+};
+
+/**
+ * Firebase API Wrapper
+ * Wraps Firebase functions in basic use-case appropriate methods.
+ * Attempt to manage async lifetimes when possible, otherwise
+ * return Promises for use with .then().catch().
+ */
+export var FirebaseUtils = {
+    db: null,
+    user: null,
+    restaurants: [],
+    /**
+     * Initialize Firebase and Firestore API
+     * Must be called before any of the FirebaseUtil functions
+     */
+    init: function() {
+        if (!firebase.apps.length) {
+            console.log("Initializing Firebase...");
+            firebase.initializeApp(firebaseConfig);
+            this.db = firebase.firestore();
+            try {
+                this.db.collection('restaurants')
+                    .onSnapshot((querySnapshot) => {
+                        this.restaurants = [];
+                        querySnapshot.forEach((doc) => {
+                            this.restaurants.push(doc.data());
+                        });
+                    });
+            } catch (error) {
+                console.log("Failed to retrieved restaurants snapshot.");
+            }
+        }
+    },
+    /**
+     * Sign-in user using email+password.
+     * Initializes user object 
+     * @param {string} email 
+     * @param {string} password 
+     */
+    signIn: async function(email, password)
+    {
+        return firebase.auth().signInWithEmailAndPassword(email, password);
+    },
+    /**
+     * Create new user with email+password
+     * Initializes user object 
+     * @param {string} email 
+     * @param {string} password 
+     */
+    createUser: async function(email, password)
+    {
+        return firebase.auth().createUserWithEmailAndPassword(email, password);
+    },
+    /**
+     * Retrieve the entire collection of Restaurants 
+     * @returns {Promise}
+     */
+    allRestaurants: async function()
+    {
+        if (this.restaurants.length > 0) {
+            return new Promise.resolve(this.restaurants);
+        }
+        return new Promise(function (resolve, reject) {
+            (function waitForList() {
+                if (FirebaseUtils.restaurants.length > 0)
+                    return resolve(FirebaseUtils.restaurants);
+                
+                setTimeout(waitForList, 10);
+            })();
+        });
+    },
+
+    /**
+     * Retrive one random restaurant
+     * @returns {QueryDocumentSnapshot}
+     */
+    randomRestaurant: async function()
+    {
+        if (this.restaurants.length > 0) {
+            let rand_restaurant = 
+                this.restaurants[Math.floor(Math.random() * this.restaurants.length)];
+            return new Promise.resolve(rand_restaurant);
+        }
+        return new Promise(function (resolve, reject) {
+            (function waitForList() {
+                if (FirebaseUtils.restaurants.length > 0) {
+                    let rand_restaurant = 
+                        FirebaseUtils.restaurants[Math.floor(Math.random() * FirebaseUtils.restaurants.length)];
+                    return resolve(rand_restaurant);
+                }
+                
+                setTimeout(waitForList, 10);
+            })();
+        });
+    }
+};
+export default FirebaseUtils;
+
+
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AccessScreen">AccessScreen</a></li><li><a href="global.html#CircularImage">CircularImage</a></li><li><a href="global.html#firebaseConfig">firebaseConfig</a></li><li><a href="global.html#FirebaseUtils">FirebaseUtils</a></li><li><a href="global.html#HelpButton">HelpButton</a></li><li><a href="global.html#HistoryScreen">HistoryScreen</a></li><li><a href="global.html#LoadingScreen">LoadingScreen</a></li><li><a href="global.html#LogInScreen">LogInScreen</a></li><li><a href="global.html#MainScreen">MainScreen</a></li><li><a href="global.html#RecommendedScreen">RecommendedScreen</a></li><li><a href="global.html#Registerscreen">Registerscreen</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun May 09 2021 00:53:47 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
