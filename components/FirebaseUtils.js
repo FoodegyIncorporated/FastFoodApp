@@ -2,6 +2,10 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
+/**
+ * Firebase Auto-generated Configuration
+ * PRIVATE - Remove from history if this repo is made public
+ */
 var firebaseConfig = {
     apiKey: "AIzaSyAbX3uI2St7-AWYld9Mjdd7SCOATFxC0ZQ",
     authDomain: "foodegy-4357d.firebaseapp.com",
@@ -12,6 +16,12 @@ var firebaseConfig = {
     measurementId: "G-433CEVDKN5"
 };
 
+/**
+ * Firebase API Wrapper
+ * Wraps Firebase functions in basic use-case appropriate methods.
+ * Attempt to manage async lifetimes when possible, otherwise
+ * return Promises for use with .then().catch().
+ */
 export var FirebaseUtils = {
     db: null,
     user: null,

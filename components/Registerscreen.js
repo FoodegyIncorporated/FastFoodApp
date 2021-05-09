@@ -2,6 +2,13 @@ import React from 'react';
 import FirebaseUtils from "./FirebaseUtils"
 import { ImageBackground, StyleSheet, View, Image, Text, Button, TextInput, Alert } from 'react-native';
 
+/**
+ * Register Screen
+ * Display form for user account registration
+ * Includes callbacks for validation and Firebase account creation 
+ * @param {object} props 
+ * @returns JSX.element
+ */
 function Registerscreen(props) {
     const [confirmpass, onChangeconfirmpass] = React.useState(null);
     const [email, onChangeEmail] = React.useState(null);

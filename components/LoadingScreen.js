@@ -1,6 +1,12 @@
 import React from 'react';
 import { Image, ImageBackground, StyleSheet, View, Text } from 'react-native';
 
+/**
+ * Loading Screen
+ * Placeholder for deployed loading screen 
+ * @param {object} navigation 
+ * @returns 
+ */
 function LoadingScreen({navigation}) {
     React.useEffect(() => {
       const loaded = navigation.addListener('transitionEnd', (e) => {

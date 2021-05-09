@@ -2,6 +2,12 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ImageBackground, StyleSheet, View, Image, Text, Button, Platform } from 'react-native';
 
+/**
+ * Access Screen
+ * Displays auth methods and account registration, including guest sign-on
+ * @param {object} navigation 
+ * @returns 
+ */
 function AccessScreen({navigation}) {
     const handlePress = () => console.log("Button Pressed");
     const handleGuest = () => {

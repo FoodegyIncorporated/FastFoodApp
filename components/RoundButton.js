@@ -3,6 +3,12 @@ import { TouchableWithoutFeedback, Animated, StyleSheet, Image, ImageBackground 
 import { useRef } from 'react';
 import { useCallback } from 'react';
 
+/**
+ * Round Button
+ * Utility component to create round button with text in the center
+ * @param {object} {name, onPress} 
+ * @returns JSX.element
+ */
 export default function RoundButton({name, onPress}) {
     const scale = useRef(new Animated.Value(1)).current;   
 

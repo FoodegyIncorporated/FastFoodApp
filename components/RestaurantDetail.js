@@ -2,6 +2,13 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ImageBackground, StyleSheet, Text, Image, View } from 'react-native'
 
+/**
+ * Restaurant Detail
+ * Displays a selected restaurants details as passed by
+ * the navigation route params 
+ * @param {object} navigation 
+ * @returns JSX.element
+ */
 export default function RestaurantDetail({ route, navigation }) {
     let { liked } = route.params;
     let restaurant = liked.length ? liked[Math.floor(Math.random() * liked.length)] : null;

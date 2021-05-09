@@ -22,6 +22,12 @@ import { ImageBackground } from "react-native";
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
+/**
+ * Drawer Content
+ * Drawer menu with content routes
+ * @param {*} props 
+ * @returns JSX.element
+ */
 function CustomDrawerContent(props) {
     let checkFirebaseUser = firebase.auth().currentUser && firebase.auth().currentUser.uid
     
@@ -74,6 +80,11 @@ function CustomDrawerContent(props) {
     );
   }
 
+  /**
+   * Drawer Stack
+   * Nav stack using DrawerStack instead of Navigator component for menu
+   * @returns JSX.element
+   */
 const DrawerStackNavigator = () => {
   return (
     // Add All Screen here

@@ -2,6 +2,13 @@ import React from 'react';
 import FirebaseUtils from "./FirebaseUtils"
 import { ImageBackground, StyleSheet, View, Image, Text, Button, TextInput, Alert } from 'react-native';
 
+/**
+ * Log In Screen
+ * Component that displays form to login
+ * Callbacks to submit credentials and verify authentication 
+ * @param {object} props 
+ * @returns JSX.element
+ */
 function LogInScreen(props) {
     const [username, onChangeUsername] = React.useState(null);
     const [password, onChangePassword] = React.useState(null);

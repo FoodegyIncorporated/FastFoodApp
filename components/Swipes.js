@@ -8,6 +8,14 @@ import {CARD, ACTION_OFFSET } from './Constants'
 import Choice from './Choice'
 import FirebaseUtils from './FirebaseUtils'
 
+/**
+ * Swipes
+ * Component that handles the swipe element of the main screen
+ * Callbacks to keep count of positive/negative swipes and to
+ * randomly select one to recommend 
+ * @param {object} navigation 
+ * @returns JSX.element
+ */
 export default function Swipes({navigation}) {
     const [list, setList] = useState([]);
     const liked = useRef([]);

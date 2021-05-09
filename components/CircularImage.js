@@ -1,6 +1,12 @@
 import React from 'react';
 import { Image, View, StyleSheet, ImageBackground } from 'react-native';
 
+/**
+ * Circular Image
+ * Component to display an image with a circular mask 
+ * @param {object} props 
+ * @returns JSX.element
+ */
 function CircularImage(props) {
     return (
         <View style={styles.container}>

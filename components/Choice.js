@@ -2,6 +2,11 @@ import { StyleSheet, Text, View } from 'react-native'
 import { COLORS } from './Constants'
 import React from 'react'
 
+/**
+ * Choice utility wrapper 
+ * @param {object} type 
+ * @returns JSX.element
+ */
 export default function Choice({type}) {
     const color = COLORS[type];
     return(

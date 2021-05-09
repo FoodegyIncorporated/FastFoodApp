@@ -7,7 +7,12 @@ import Swipes from './Swipes'
 import FirebaseUtils from "./FirebaseUtils"
 import firebase from "firebase/app";
 
- 
+/**
+ * History Screen
+ * Display last few restaurant recommendations for logged-in users 
+ * @param {object} props 
+ * @returns JSX.element
+ */ 
 function HistoryScreen(props) {  
     useEffect(() => {  
     }, []);  

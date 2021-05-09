@@ -13,6 +13,11 @@ import {DrawerStackNavigator} from './navigation'
 
 const Stack = createStackNavigator();
 
+/**
+ * App
+ * Main entry function
+ * @returns JSX.element
+ */
 export default function App() {
   FirebaseUtils.init();
   return (

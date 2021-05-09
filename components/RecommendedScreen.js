@@ -7,7 +7,12 @@ import Swipes from './Swipes'
 import FirebaseUtils from "./FirebaseUtils"
 import firebase from "firebase/app";
 
- 
+/**
+ * Recommended Screen
+ * Displays the randomly chosen recommended restaurant details
+ * @param {*} props 
+ * @returns JSX.element
+ */ 
 function RecommendedScreen(props) {  
     useEffect(() => {  
     }, []);  

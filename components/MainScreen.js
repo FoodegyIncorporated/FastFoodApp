@@ -7,6 +7,13 @@ import Swipes from './Swipes'
 import FirebaseUtils from "./FirebaseUtils"
 import firebase from "firebase/app";
 
+/**
+ * Main Screen
+ * Displays the main feature of the app, using the menu, help, and swipes
+ * components. 
+ * @param {object} navigation 
+ * @returns JSX.element
+ */
 function MainScreen({navigation}) {
     return (
         <SafeAreaView style={styles.container}>

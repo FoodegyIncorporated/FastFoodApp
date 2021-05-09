@@ -1,6 +1,12 @@
 import React, {useState} from 'react';
 import { Alert, Modal, StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 
+/**
+ * Help Button
+ * Display modal with some helpful tips on using the app
+ * @param {object} props 
+ * @returns JSX.element
+ */
 function HelpButton(props) {
     const [modalVisible, setModalVisible] = useState(false);
     let message = "We've got you!!\n\nFoodegy makes life easier by helping you decide where to eat! Don't know what you're in the mood for? We got you covered.\n\nYou simply swipe left on something you dislike and swipe right on something you find delicious.\n\nWe then help you find restaurants or fast foods based on your likes and dislikes! We also find restaurants or fast foods closest to you, along with prices.";
