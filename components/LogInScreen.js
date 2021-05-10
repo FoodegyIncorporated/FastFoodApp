@@ -6,10 +6,11 @@ import { ImageBackground, StyleSheet, View, Image, Text, Button, TextInput, Aler
  * Log In Screen
  * Component that displays form to login
  * Callbacks to submit credentials and verify authentication 
- * @param {object} props 
+ * @param {object} props
  * @returns JSX.element
  */
-function LogInScreen(props) {
+
+function LogInScreen({navigation}) {
     const [username, onChangeUsername] = React.useState(null);
     const [password, onChangePassword] = React.useState(null);
     
@@ -26,7 +27,8 @@ function LogInScreen(props) {
         );
     const handlePress = () => {
         FirebaseUtils.signIn(username,password)
-        .then((username) => console.log("Success"))
+        .then((username) => {console.log("Success") 
+            navigation.navigate('Main');})
         .catch((error) =>{createOneButtonAlert()});
     }
     
