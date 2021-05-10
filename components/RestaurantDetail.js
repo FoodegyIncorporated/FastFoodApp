@@ -1,6 +1,7 @@
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ImageBackground, StyleSheet, Text, Image, View } from 'react-native'
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
 
 /**
  * Restaurant Detail
@@ -20,15 +21,16 @@ export default function RestaurantDetail({ route, navigation }) {
             style={styles.background}>
                 <View style={styles.titleBlock}>
                     <Text style={styles.title}>{ restaurant.name }</Text>
+                    <Text style={styles.subtitle}>{ restaurant.cuisine }</Text>
                 </View>
                 <Image 
                 style={styles.restaurant_image}
                 source={{uri: 'https://raw.githubusercontent.com/FoodegyIncorporated/Foodegy-Images/master/Restaurant_images/' + restaurant.image.replace(/ /g, "_") }} />
                 <View style={styles.description}>
-                        <Text style={styles.descriptionText}>Cost: { restaurant.cost }</Text>
-                        <Text style={styles.descriptionText}>Rating: { restaurant.rating }</Text>
-                        <Text style={styles.descriptionText}>Address: { restaurant.address }</Text>
-                        <Text style={styles.descriptionText}>Phone: { restaurant.phone }</Text>
+                        <Text style={styles.descriptionText}><FontAwesome name="money" size={24} color="white" /> Cost: { restaurant.cost }</Text>
+                        <Text style={styles.descriptionText}><FontAwesome name="bar-chart" size={24} color="white" />: { restaurant.rating }/5</Text>
+                        <Text style={styles.descriptionText}><FontAwesome name="building" size={24} color="white" />: { restaurant.address }</Text>
+                        <Text style={styles.descriptionText}><FontAwesome name="phone" size={24} color="white" />: { restaurant.phone }</Text>
                 </View>
             </ImageBackground>
         </SafeAreaView>
@@ -47,7 +49,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     title: {
-        fontSize: 35,
+        fontSize: 36,
+        fontWeight: '500',
+        color: 'white',
+        textAlign: 'center'
+    },
+    subtitle: {
+        fontSize: 16,
         fontWeight: '500',
         color: 'white',
         textAlign: 'center'
