@@ -9,7 +9,7 @@ import { ImageBackground, StyleSheet, View, Image, Text, Button, TextInput, Aler
  * @param {object} props 
  * @returns JSX.element
  */
-function Registerscreen(props) {
+function Registerscreen({navigation}) {
     const [confirmpass, onChangeconfirmpass] = React.useState(null);
     const [email, onChangeEmail] = React.useState(null);
     const [password, onChangePassword] = React.useState(null);
@@ -64,7 +64,8 @@ function Registerscreen(props) {
 
     const handlePress = () => {
         FirebaseUtils.createUser(email,password)
-        .then((email) => console.log("Success"))
+        .then((email) => {console.log("Success")
+            navigation.navigate('Main');})
         .catch((error) =>{createOneButtonAlert()});
     }
 
