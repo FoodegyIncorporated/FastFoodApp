@@ -20,7 +20,7 @@ function MainScreen({navigation}) {
             <View style={styles.containers}>
 
                 <TouchableOpacity style={styles.drawerContain}
-                    onPress={()=>{props.navigation.toggleDrawer()}}>
+                    onPress={()=>{navigation.toggleDrawer()}}>
                     <Image style={styles.drawerIcon} source={require('../assets/menu.png')} />
                 </TouchableOpacity>
 
