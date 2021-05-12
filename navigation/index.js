@@ -24,7 +24,7 @@ const Drawer = createDrawerNavigator();
 
 /**
  * Drawer Content
- * Drawer menu with content routes
+ * Drawer menu which gets the content routes
  * @param {*} props 
  * @returns JSX.element
  */
@@ -82,7 +82,7 @@ function CustomDrawerContent(props) {
 
   /**
    * Drawer Stack
-   * Nav stack using DrawerStack instead of Navigator component for menu
+   * Use stack DrawerStack instead of Navigator component for menu 
    * @returns JSX.element
    */
 const DrawerStackNavigator = () => {
