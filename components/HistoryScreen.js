@@ -9,7 +9,7 @@ import firebase from "firebase/app";
 
 /**
  * History Screen
- * Display last few restaurant recommendations for logged-in users 
+ * This part of the code is responsibe for displaying last few restaurtant recommendations for logged-in users
  * @param {object} props 
  * @returns JSX.element
  */ 
