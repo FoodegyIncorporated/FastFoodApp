@@ -20,3 +20,9 @@ Once you have all that installed, navigate to project folder inside your termina
 `expo start`
 
 If this is your first launch, you'll need to scan a QR code. After that the app should pop-up.
+
+__Running Tests__
+
+This project uses JTest to run tests. After installation, test can be run with:
+
+`npm run test`
